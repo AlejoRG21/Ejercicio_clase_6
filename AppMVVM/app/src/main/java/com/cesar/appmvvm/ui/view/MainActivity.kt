@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //llamado al onCreate del viewmodel
+        quoteViewModel.onCreate()
+
 
         quoteViewModel._quoteModel.observe(this, Observer{
             binding.tvQuote.text = it.quote

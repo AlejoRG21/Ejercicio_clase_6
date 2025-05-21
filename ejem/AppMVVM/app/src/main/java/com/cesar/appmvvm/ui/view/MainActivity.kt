@@ -1,9 +1,11 @@
 package com.cesar.appmvvm.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.cesar.appmvvm.data.model.UserProvider
 import com.cesar.appmvvm.databinding.ActivityMainBinding
 import com.cesar.appmvvm.ui.viewmodel.QuoteViewModel
 
@@ -31,6 +33,18 @@ class MainActivity : AppCompatActivity() {
             quoteViewModel.randomQuote()
         }
 
+        val name = intent.getStringExtra("name")
+        val lastName = intent.getStringExtra("lastName")
+        val jwt = intent.getStringExtra("jwt")
+
+        binding.tvUser.text = "$name = $lastName - $jwt"
+
+        binding.tvUser.setOnClickListener{
+            UserProvider.user = null
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 }

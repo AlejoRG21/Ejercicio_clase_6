@@ -8,6 +8,6 @@ import retrofit2.http.POST
 import java.net.CacheRequest
 
 interface AuthApiClient {
-    @POST("sing_in")
+    @POST("sign_in")
     suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
 }

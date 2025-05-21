@@ -29,7 +29,7 @@ class LoginViewModel: ViewModel(){
             _loginResponse.postValue((result))
 
             when (result.status){
-                "succes" ->{
+                "success" ->{
                     _userModel.postValue(result.data)
                     _isLoading.postValue(false)
                 }
